@@ -1,0 +1,48 @@
+/* book-detail.css */
+:root {
+    --brutalist-purple: #9333EA;
+    --brutalist-yellow: #FBBF24;
+    --brutalist-black: #1F2937;
+    --brutalist-white: #FFFFFF;
+    --brutalist-border: 3px;
+}
+
+.book-detail {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.book-detail .card {
+    border: var(--brutalist-border) solid var(--brutalist-black);
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.book-detail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-right: var(--brutalist-border) solid var(--brutalist-black);
+}
+
+.book-detail .card-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--brutalist-black);
+    margin-bottom: 1rem;
+}
+
+.book-detail #toggle-favorite {
+    font-size: 3rem;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 1.5rem;
+    transition: transform 0.2s;
+}
+
+.book-detail #toggle-favorite:hover {
+    transform: scale(1.2);
+}

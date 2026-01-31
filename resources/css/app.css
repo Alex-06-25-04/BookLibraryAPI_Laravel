@@ -1,0 +1,21 @@
+/* Importa il CSS per Auth */
+@import './auth.css';
+@import './home.css';
+@import './reading-list.css';
+@import './book-detail.css';
+
+/* Stili globali */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#app {
+    width: 100%;
+    min-height: 100vh;
+}

@@ -1,0 +1,182 @@
+/* ===== FONT & VARIABILI ===== */
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --success-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+/* ===== AUTH CONTAINER ===== */
+.auth-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    min-height: 600px;
+    transition: var(--transition);
+}
+
+/* ===== FORM CONTAINERS ===== */
+.form-container {
+    transition: var(--transition);
+    background: white;
+    z-index: 10;
+}
+
+.login-container {
+    transform: translateX(0);
+}
+
+.register-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    height: 100%;
+    width: 50%;
+}
+
+/* ===== SWITCH PANEL ===== */
+.switch-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--primary-gradient);
+    transition: var(--transition);
+    z-index: 100;
+    transform: translateX(0);
+}
+
+/* ===== ANIMAZIONE SWITCH (Login -> Register) ===== */
+.auth-container.register-active .login-container {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.auth-container.register-active .register-container {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.auth-container.register-active .switch-panel {
+    transform: translateX(-100%);
+    background: var(--success-gradient);
+}
+
+/* ===== FORM STYLING ===== */
+.form-control {
+    border: 2px solid #e8e8e8;
+    border-radius: 12px;
+    padding: 12px 18px;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.15);
+}
+
+.btn {
+    border-radius: 12px;
+    font-weight: 600;
+    padding: 12px;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-success {
+    background: var(--success-gradient);
+    border: none;
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+}
+
+.btn-outline-light {
+    border: 2px solid white;
+    font-weight: 600;
+}
+
+.btn-outline-light:hover {
+    background: white;
+    color: #667eea;
+    transform: translateY(-2px);
+}
+
+/* ===== ICONS ===== */
+.switch-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .auth-container {
+        min-height: auto;
+    }
+
+    .form-container,
+    .register-container,
+    .switch-panel {
+        width: 100% !important;
+        position: relative !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    .register-container {
+        display: none;
+    }
+
+    .auth-container.register-active .login-container {
+        display: none;
+    }
+
+    .auth-container.register-active .register-container {
+        display: block;
+    }
+
+    .switch-panel {
+        position: relative !important;
+        height: auto !important;
+        padding: 2rem !important;
+    }
+}
